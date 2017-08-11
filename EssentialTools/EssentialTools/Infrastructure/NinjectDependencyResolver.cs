@@ -38,6 +38,9 @@ namespace EssentialTools.Infrastructure
 
             //--Binding with Constructor
             kernel.Bind<IDiscountHelper>().To<DefaultDiscountHelper>().WithConstructorArgument("discountParam", 50M);
+
+            //--Conditional Binding
+            kernel.Bind<IDiscountHelper>().To<FlexibleDiscountHelper>().WhenInjectedInto<LinqValueCalculator>();
         }
     }
 }
