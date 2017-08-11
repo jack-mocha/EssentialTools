@@ -16,10 +16,14 @@ namespace EssentialTools.Controllers
             new Product {Name = "Corner flag", Category = "Soccer", Price = 34.95M },
 
         };
+        private IValueCalculator calc;
+        public EssentialHomeController(IValueCalculator calcParam)
+        {
+            calc = calcParam;
+        }
         // GET: EssentialHome
         public ActionResult Index()
         {
-            IValueCalculator calc = new LinqValueCalculator();
             ShoppingCart cart = new ShoppingCart(calc) { Products = products };
             decimal totalValue = cart.CalculateProductTotal();
             return View(totalValue);
