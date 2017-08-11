@@ -7,7 +7,10 @@ namespace EssentialTools.Models
 {
     public class DefaultDiscountHelper : IDiscountHelper
     {
+        //--This is to demonstrate: Binding with property value
         //public decimal DiscountSize { get; set; }
+
+        //--This is to demonstrate: Binding with Constructor
         public decimal discountSize { get; set; }
 
         public DefaultDiscountHelper(decimal discountParam)
